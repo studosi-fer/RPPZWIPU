@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <script src="scripts/main.js"></script>
+    <title>Document</title>
+
+    <style>
+        td,th {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p><strong>Important text</strong> <b>Bold text</b></p>
+    <p><i>Italic</i> <em>Emphazized text</em></p>
+    <p><ins>Inserted text</ins> <del>Deleted text</del></p>
+    <p><mark>Super-important text</mark></p>
+
+    <code>
+        with SimEvent as sim:
+        post(sim)
+    </code>
+    <pre>
+        kako je 
+        tako bude
+    </pre>
+    <kbd> ctrl+N </kbd> <br/>
+    <samp>reached EOF</samp>
+
+    <p>
+        <time datetime="1969-08-20 20:17">20. srpanj '69., 20:17</time>
+        <!-- za razumijevanje racunalu-->
+    </p>
+
+    <figure>
+        <img src="slika.jpg" height="300px" alt="Opis">
+        <figcaption>Tekst ispod slike</figcaption>
+    </figure>
+
+    <ul style="list-style-type:square;">
+        <li>Germknedle</li>
+        <li style="list-style-type:circle;">Kobasice u pecivu</li>
+    </ul>
+
+    <ol type="1" start="2">
+        <!-- 1,A,a,I -> nacin numeriranja -->
+        <li>Java</li>
+        <li>C</li>
+    </ol>
+
+    &euro;&copy;&gt;&lt;&amp;&quot;
+    &nbsp; Uvucen
+
+    <dl>
+        <dt>Naslov1</dt><dd>Opis1</dd>
+        <dt>Naslov2</dt><dd>Opis2</dd>
+    </dl>
+
+    <table>
+        <colgroup> <!-- uredivanje stila stupaca -->
+            <col> <!-- preskoci prvi stupac -->
+            <col span="2" style="background-color: cyan;"> <!-- uredi iduca dva -->
+        </colgroup>
+        <tr>
+            <th rowspan="2" style="transform: rotate(-90deg)">Uzorci</th>
+            <td>a11</td>
+            <td>a12</td>
+        </tr>
+        <tr>
+            <td colspan="2">a21</td>
+        </tr>
+    </table>
+
+    <a href="http://www.fer.hr/index.html">fer</a>
+    <a href="#b2" title="1. poglavlje">poglavlje</a>
+    <h3 id="b2">Skoci na ovo poglavnje</h3>
+
+    <hr /> <!-- horz crta-->
+
+    <!-- HTML 2 -->
+
+    <form target="_self" action="/processForm.php" method="GET">
+        <!-- target: self unutar istog, blank unutar novog -->
+
+        <label>Korisničko ime: <input type="text" name="username" value="enter your username" size="30"></label><br/>
+        <label>Lozinka: <input type="password" name="password" maxlength="30" required></label><br/>
+        <label>Skriven input <input type="text" hidden readonly></label>
+
+        <fieldset> <!-- radio-button -> izabir jednog -->
+            <legend>Uloga</legend>
+            <label><input type="radio" name="role" value="admin" checked>Administrator</label><br/>
+            <input type="radio" id="user" name="role" value="user">
+                <label for="user">Korisnik</label></p> 
+        </fieldset>
+
+        <fieldset> <!-- checkbox -> bilo koji broj -->
+            <legend>Dodatne opcije</legend>
+            <label><input type="checkbox" name="stakla" value="da" checked>Stakla</label><br/>
+            <label><input type="checkbox" name="felge" value="da">Felge</label>
+        </fieldset>
+
+        <select name="padajuca_lista" size="1">
+            <!-- multiple za selectanje vise -->
+            <option value="opcija" selected>Opcija</option>
+            <option value="opcija">Opcija2</option>
+        </select><br/>
+
+        <input type="date" name="trip_start"><br/>
+
+        <label>Datoteka: <input type="file" name="datoteka"></label><br/>
+        <!-- mora biti POST u method -->
+
+        <textarea name="tijelo" rows="10" cols="50">Inicijalan sadrzaj</textarea><br/>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Odustani">
+
+    </form>
+    <!--
+        greske kodiranja sadrzaja: ponovljeno ime elementa, atribut disabled, atribut nije definiran
+    
+        application/x-www-form-urlencoded -> cust=Pero+Peri%C4%87&address=Ulica...
+
+        text/plain -> za developere -> cust=Pero address=Ulica
+    -->
+
+
+</body>
+
+</html>

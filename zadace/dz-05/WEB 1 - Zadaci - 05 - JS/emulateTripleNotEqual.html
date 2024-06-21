@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function haveSameType(a, b) {
+            return (a instanceof Array && b instanceof Array) ||
+                (a === null && b === null) ||
+                (typeof a === typeof b &&
+                    b !== null &&
+                    a !== null &&
+                    !(a instanceof Array) &&
+                    !(b instanceof Array)
+                );
+        }
+
+        function emulateTripleNotEqual(lvalue, rvalue) {
+            return !haveSameType(lvalue, rvalue) || lvalue != rvalue;
+        }
+
+        console.log(emulateTripleNotEqual(3, "3"));
+        console.log(3 !== "3");
+        console.log(emulateTripleNotEqual(3, 3));
+        console.log(3 !== 3);
+        console.log(emulateTripleNotEqual([], []));
+        console.log([] !== []);
+        console.log(emulateTripleNotEqual({}, {}));
+        console.log({} !== {});
+        console.log(emulateTripleNotEqual(null, null));
+        console.log(null !== null);
+        console.log(emulateTripleNotEqual([], {}));
+        console.log([] !== {});
+        console.log(emulateTripleNotEqual([], null));
+        console.log([] !== null);
+        console.log(emulateTripleNotEqual({}, null));
+        console.log({} !== null);
+    </script>
+</body>
+
+</html>

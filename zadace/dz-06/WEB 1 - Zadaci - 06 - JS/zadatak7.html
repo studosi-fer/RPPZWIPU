@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <title>Učimo web!</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Moja web stranica</h1>
+    <p id="tvrdnja" title="tvrdnja" style="color: green;">
+        Danas je <i>lijep</i> dan.</p>
+    <hr />
+    <p id="recenica">Idemo svi u prirodu!</p>
+    <br />
+    <button style="height:25px;width:200px" onclick="changeWeather()">
+        Change weather</button>
+</body>
+<script>
+    function changeWeather() {
+        document.querySelector("i").innerHTML = 'promjenjiv';
+        document.getElementById("recenica").innerHTML = "Ako idemo u prirodu, moramo provjeriti vremensku prognozu";
+        document.getElementById("recenica").style.backgroundColor = "yellow";
+    }
+</script>
+
+</html>

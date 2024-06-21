@@ -1,0 +1,40 @@
+.gridcontainer{
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr 2fr 2.2fr 0.8fr;
+    grid-gap: 1.5em;
+    grid-template-rows: 9em 10em 16em 7em ;
+}
+
+.gridelem{
+    background-color: lightgray;
+    color:lightgray;
+}
+
+
+
+.sranje{
+
+    background-color: black;
+    display:grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 9.5em 5em;
+    grid-gap: 1.5em;
+
+}
+
+.red{
+
+    background-color: red;
+
+}
+
+.blue{
+    background-color: blue; 
+
+}
+
+.yellow{
+     
+    background-color: yellow;
+}

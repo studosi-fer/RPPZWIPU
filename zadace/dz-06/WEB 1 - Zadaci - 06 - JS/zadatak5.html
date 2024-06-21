@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class InsertionSort {
+            constructor(size) {
+                this.size = size;
+            }
+            get Size() {
+                return this.size;
+            }
+            //class-specific code (removed for brevity)
+            set Size(newSizeValue) {
+                if (newSizeValue > this.size) {
+                    throw new RangeError("New value cannot be larger than the current size!");
+                } else if (newSizeValue <= 0) {
+                    throw new RangeError("New value cannot be negative or zero!");
+                }
+                this.size = size;
+            }
+        }
+        try {
+            let oneSort = new InsertionSort(100);
+            oneSort.Size = 101;
+        } catch (err) {
+            console.log(err.name + ": " + err.message);
+        }
+        try {
+            let oneSort = new InsertionSort(100);
+            oneSort.Size = 0;
+        } catch (err) {
+            console.log(err.name + ": " + err.message);
+        }
+    </script>
+</body>
+
+</html>

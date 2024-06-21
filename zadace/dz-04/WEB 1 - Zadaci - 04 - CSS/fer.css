@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+
+.header{
+    display:flex;
+    flex-direction: row;
+    align-items: center ;
+    justify-content: space-between;
+    background-color:black;
+    margin: 10px;
+    flex-wrap: wrap;
+    
+
+}
+
+.image{
+    
+   width: fit-content;
+   height: fit-content;
+   display: inline;
+  
+
+}
+
+.img{
+   
+    margin: 10px;
+    height: 3rem;
+    display: inline;
+}
+
+                                   
+.naslov{
+    height: fit-content;
+    display: inline;
+    
+}
+
+.text{
+    color: white;
+    font-size: 5em,;
+    display:inline;
+    
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+
+
+.dugi{
+    display: inline;
+}
+               
+.kratki{
+    display: none;
+}
+
+@media screen and (max-width : 1000px){
+
+    .dugi{
+        display: none;
+    }
+                   
+    .kratki{
+        display: inline;
+    }
+
+
+
+}

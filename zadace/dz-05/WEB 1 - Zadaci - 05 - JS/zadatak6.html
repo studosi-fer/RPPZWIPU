@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getKeyWithValue(object, value) {
+            ret = []
+
+            for (const [entry_key, entry_value] of Object.entries(object)) {
+                if (entry_value === value) {
+                    ret.push(entry_key);
+                }
+            }
+
+            if (ret.length == 1) {
+                return ret[0];
+            }
+            return ret;
+        }
+
+        let person1 = {
+            OIB: "12345678912345",
+            name: "Pero",
+            surname: "Pero"
+        };
+
+        console.log(getKeyWithValue(person1, "12345678912345"));
+        console.log(getKeyWithValue(person1, "Pero"));
+    </script>
+</body>
+
+</html>

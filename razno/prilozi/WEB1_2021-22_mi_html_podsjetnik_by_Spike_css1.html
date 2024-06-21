@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--initial-scale=maximum-scale,minimum,user-scalable-->
+<head>
+  <style>
+    body {
+      color: green;
+      border: 1px solid black;
+    }
+    
+    ol {
+      border: inherit;
+    }
+    
+    #z1 {
+      border: inherit;
+    }
+    
+    #z2 {
+      color: initial;
+    }
+    
+    #z3 {
+      color: unset;
+    }
+
+    li:nth-child(even){ 
+      
+      /*  sada ne radi zbog gore selectora */
+
+      /* Vaznost elementa
+          
+          1. izvor (!important,normal)
+          2. specifincnost(id,class,tag)
+          3. zadnji ako je sve isto
+      */
+      color:red
+
+    }
+
+    div {
+      border: 1px solid black;
+      background: #ccc;
+      font-size: 32px;
+    }
+    
+    div.container {
+      margin: 25px 25px;      
+      padding: 5px;
+      background: unset;
+      /* position: relative; */
+    }
+    
+    div.lego {
+      width: 177px;
+      height: 100px;
+    }
+    
+    div.relative {
+      position: relative;
+      top: -50px;
+      left: 50px;
+      /* z-index: -1; ako je -1 onda ode iza */
+    }
+    
+    div.absolute {
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    
+    div.fixed {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* css 2 */
+
+    h1 {
+       font-size: 1.5em; 
+    } 
+    /* em se unutar elementa raste eksponencijalno, rem ne */
+
+    @media screen and (min-width: 768px) {
+      /* oblikovanje za mobilne uredaje,stolna su ok */
+    }
+
+    /* vh,vmin,vmax */
+    
+  </style>
+
+
+
+  
+</head>
+
+<body>
+  <h1>Newtonovi zakoni</h1>
+  <ol>
+    <li id="z1">Zakon inercije</li>
+    <li id="z2">Temeljni zakon gibanja</li>
+    <li id="z3">Zakon akcije i reakcije</li>
+  </ol>
+
+  <div class="container">
+    <div class="lego">static1</div>
+    <div class="lego">static2</div>
+    <div class="lego">static3</div>
+    <div class="lego relative">relative u odnosu na static</div>
+    <div class="lego absolute">absolute</div>
+    <div class="lego fixed">fixed</div>
+  </div>
+
+  <h1>Quotes of the day:</h1>
+<div class="quote">
+<h1>Quote of the day</h1>
+The single biggest ... Shaw
+</div>
+
+
+
+
+
+</body>
+
+</html>

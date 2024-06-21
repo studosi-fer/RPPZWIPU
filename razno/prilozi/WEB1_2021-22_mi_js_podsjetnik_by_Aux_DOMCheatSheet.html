@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+
+    aa
+    bb
+
+    <h1 class="c2"> Naslov </h1>
+
+    <p id="i1" class="c2"> Paragraf </p>  
+
+</body>
+
+<script>
+    // DOM
+
+    let html = document.documentElement;
+    let body = document.body;
+    let head = document.head;
+
+    let bodyChildrenElements = body.children; // samo html elementi
+    let bodyChildren = body.childNodes; // sadrzi i tekst, npr "aa bb" je jedan clan, te svaki \n
+    
+    let h1 = body.firstElementChild;      // samo html elementi, .firstChild za sve
+    let script = body.lastElementChild;   // samo html elementi, .lastChild za sve
+
+    let p = h1.nextElementSibling;
+    h1 = p.previousElementSibling;
+    body = h1.parentElement;
+
+    p = document.getElementById("i1");
+    h1 = document.querySelector(".c2"); // css selektori
+    p_h1 = document.querySelectorAll(".c2");
+
+    p.style.backgroundColor = "Red";
+    p.innerHTML = "promjena teksta";
+
+    let newP = document.createElement("p");
+    newP.innerHTML = "novi paragraf";
+    body.appendChild(newP);    
+
+    alert("hey");
+    let answer = prompt("name?", "default");
+    let response = confirm("cookies?");
+
+    // JSON
+    let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+    let personJSON = JSON.stringify(person);
+    let personFromJSON = JSON.parse(personJSON);
+
+    // local storage
+    let ls = window.localStorage;
+    ls.setItem("item", 2);
+    let keyAtIndex0 = ls.key(0);
+    let length = ls.length;
+    let item = ls.getItem("item");
+    ls.removeItem("item");
+    ls.clear();
+
+</script>
+
+</html>

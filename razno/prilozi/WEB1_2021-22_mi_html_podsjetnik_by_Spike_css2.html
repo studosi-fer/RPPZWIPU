@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <style>
+      @media screen and (max-width:768px) { // za veličine 768px i manje
+         body {
+           background-color:blue;
+         }
+       }
+
+      .flex-container {
+      list-style: none;
+      border: 1px dashed black;      
+      height: 500px;
+      
+      display: flex;
+      flex-flow: column wrap; 
+      
+      /* 
+       
+        nowrap (stisni sve elemente ako se smanji prostor)
+        wrap   (kreni slagat elemente po redu odozgora prema dolje)
+        wrap-reverse(odozdo prema gore ih slazi po redu)      
+    
+      */
+
+      justify-content:flex-start;             
+      /*        
+       justify-content:flex-start(lijevo),flex-end(desno)
+       center,space-betweeen,space-around,space-evenly
+       po x-osi
+      */
+      width: 500px;
+      align-items: flex-start;
+    /* 
+        align-items:flex-start(gore),flex-end(dolje),center(centar),
+                    stretch,baseline(manje bitno)
+    */
+          
+      
+      /* width: 120px; */
+      /* align-content: space-around; 
+         align-content: flex-start(gore),flex-end(dolje),center,space-between,
+                        space-around,space-evenly
+         skupi sve elemente i mice ih po y osi
+        widith treba bit malo veci ,inace ne radi sa widith 500
+      */
+
+
+    }
+
+    .item {
+      border: 1px solid black;  
+      width: 100px;
+      height: 100px;
+      margin: 1px;      
+      color: black;      
+      font-size: 2em;
+      text-align: center;
+    }
+
+   /* GRID */
+
+   .grid-container{
+
+        display: grid;
+        grid-template-columns: 10fr 5fr;
+        border: 1px solid black;        
+        justify-items: center;
+        /* lijevo,centar,desno -> start,center,end */
+
+        align-items: center;
+        /* gore,sredina,dolje -> start,center,end,stretch */
+
+   }
+
+   
+   .spoji{
+
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+
+   }
+   .poravnaj-desno{
+       text-align: right;
+   }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="grid-container">
+    <div class="grid-item">1</div>    
+    <div class="grid-item">2</div>
+    <div class="grid-item spoji">\</div>
+    <div class="grid-item spoji poravnaj-desno">/</div>    
+</div>  
+
+<ul class="flex-container">
+    <li class="item">1</li>
+    <li class="item">2</li>
+    <li class="item">3</li>
+</ul>
+
+</body>
+
+</html>

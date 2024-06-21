@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Sort {
+            constructor(size) {
+                this.size = size;
+                this.array = this.generateRandomBigArray(size);
+            }
+            generateRandomBigArray(size) {
+                let array = [];
+                while (size > 0) {
+                    array.push(Math.random() * 1000);
+                    size--;
+                }
+                return array;
+            }
+            get Size() {
+                return this.size;
+            }
+            set Size(newSizeValue) {
+                if (newSizeValue > this.size) {
+                    console.log("Error! Cannot enlarge size without enlarging the array");
+                } else
+                    this.size = newSizeValue;
+            }
+            sort() {
+                console.log("This is base class. No sorting is done.");
+            }
+        }
+
+        class InsertionSort extends Sort {
+            constructor(size) {
+                super(size);
+            }
+            sort() {
+                for (let i = 1; i < this.array.length; i++) {
+                    let temp = this.array[i];
+                    let j = i;
+                    for (; j >= 1 && this.array[j - 1] >
+                        temp; j--)
+                        this.array[j] = this.array[j - 1];
+                    this.array[j] = temp;
+                }
+                return this.array;
+            }
+        }
+
+        class SelectionSort extends Sort {
+            constructor(size) {
+                super(size);
+            }
+            sort() {
+                for (let i = 0; i < this.array.length; i++) {
+                    let min = i;
+                    for (let j = i + 1; j < this.array.length; j++) {
+                        if (this.array[j] < this.array[min]) {
+                            min = j;
+                        }
+                    }
+                    if (min != i) {
+                        let tmp = this.array[i];
+                        this.array[i] = this.array[min];
+                        this.array[min] = tmp;
+                    }
+                }
+                for (let i = 1; i < this.array.length; i++) {
+                    let temp = this.array[i];
+                    let j = i;
+                    for (; j >= 1 && this.array[j - 1] >
+                        temp; j--)
+                        this.array[j] = this.array[j - 1];
+                    this.array[j] = temp;
+                }
+                return this.array;
+            }
+        }
+
+        console.time('InsertionSort');
+        let a = new InsertionSort(1e4);
+        a.sort();
+        console.timeEnd('InsertionSort');
+        console.time('SelectionSort');
+        let b = new SelectionSort(1e4);
+        b.sort();
+        console.timeEnd('SelectionSort');
+    </script>
+</body>
+
+</html>

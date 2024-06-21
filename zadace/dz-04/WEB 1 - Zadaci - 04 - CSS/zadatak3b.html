@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 16px">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            font-size: 2em;
+        }
+
+        /* 2em je dva puta veće od roditelja, pa raste eksponencijalno.
+        Početni je font veličine 1em odnosno 16px.
+        Moguće ju je promijeniti postavljanjem veličine root elementa html, ili postavkama preglednika.
+        rem se odnosi na root. */
+    </style>
+</head>
+
+<body>
+    <div>
+        exponential growth
+        <div>
+            exponential growth
+            <div style="font-size: 2rem;">
+                exponential growth
+                <div>
+                    exponential growth
+                    <div>
+                        exponential growth
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

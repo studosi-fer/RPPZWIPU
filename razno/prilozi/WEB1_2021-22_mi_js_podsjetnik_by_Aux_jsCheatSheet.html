@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <button onclick = "console.log('clicked')">button</button>
+    </body>
+    <script>
+        var x = 123e-5; // global scope
+        let y = "string"; // local scope
+        const z = 'string'; // const
+
+        console.log(false || true); 
+        window.alert(true && true);
+        console.log(y === z); // isti tip?
+
+        let exp = 2**3 // 2^3 = 8
+
+        // strings
+        let s = "he said: \"xd\"";
+        let len = s.length;
+        let index = s.indexOf("xd");  // .lastIndexOf()
+        let newString = s.slice(1,3);
+        let numToString = (123).toString();
+        let stringToNum = Number(numToString);
+        
+        // functions
+        function f1(x="default value") {
+            console.log(x);
+        }
+        let f2 = function(x) {console.log(x);}
+
+        let f3 = (x) => console.log(x);
+
+        // arrays
+        let arr = [1,2,3,5,6,1,7,8];
+        let last = arr.pop(); // makne i returna zadnji 
+        arr.push(4);  // append na kraj
+        let first = arr.shift(); // makne i returna prvi 
+        arr.unshift(5); // ubaci na pocetak
+        arr.splice(1,2); // brise 2 elementa od indeksa 1
+
+        let arr2 = [6, 7];
+        let arr3 = arr.concat(arr); // spoji 
+        arr4 = arr3.slice(1,3); 
+        
+        console.log(arr4.includes(6));
+
+        arr.sort( function(a,b){return b - a} );  // sort sa komparatorom (desc)
+        arr.reverse();
+        arrEven = arr.filter( (x) => x%2==0);
+
+        for (let element of arr) {console.log(element);} // elementi
+        for (let index in arr) {console.log(index);}    // indeksi
+
+        // classes, objects
+
+        class Person {
+            lastName = "Doe";
+            age = 50;
+            constructor(firstNameValue) {this.firstName = firstNameValue;}
+            get lastName() {return this.lastName;}
+            set lastName(newLastName) {this.lastName = newLastName}
+
+        }
+
+        let person1 = new Person("John");
+        person1.lastName = "Williams";
+        person1.firstName = "Jake";
+        for (let value of Object.values(person1)) {console.log(value)}
+
+
+        // try-catch
+        try {
+            throw "error";
+        } catch(err) {
+            console.log(err);
+        } finally {
+            var x = 2;
+        }
+    </script>
+</html>

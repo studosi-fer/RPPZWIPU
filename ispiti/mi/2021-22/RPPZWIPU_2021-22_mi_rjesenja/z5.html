@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="z5.css" />
+    <script src="z5.js" defer></script>
+  </head>
+  <body>
+    <div class="fb-form-container">
+      <h2 class="heading">Flower Power Customer Feedback Form</h2>
+      <p class="text">
+        How was you experience with the Flower Power web shop? We want to hear
+        from you!
+      </p>
+      <form class="fb-form">
+        <label for="name">Name:</label>
+        <input class="input-name" type="text" name="name" required />
+        <br />
+        <label for="email">Email:</label>
+        <input class="input-email" type="email" name="email" required />
+
+        <br />
+        <label for="comment">Feedback:</label>
+        <br />
+        <textarea
+          class="input-comment"
+          name="comment"
+          rows="1"
+          cols="25"
+          required
+        ></textarea>
+
+        <div class="buttons-container">
+          <button class="save-draft-btn" type="button">Save Draft</button>
+          <button class="submit-btn" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

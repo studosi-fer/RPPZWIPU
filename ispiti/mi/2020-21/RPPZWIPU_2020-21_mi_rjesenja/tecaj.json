@@ -1,0 +1,7 @@
+{
+  "tecajevi": [
+    { "broj_tecajnice": "74", "valuta": "EUR", "srednji_tecaj": "7.561922" },
+    { "broj_tecajnice": "74", "valuta": "USD", "srednji_tecaj": "6.463541" },
+    { "broj_tecajnice": "74", "valuta": "GBP", "srednji_tecaj": "9.654856" }
+  ]
+}

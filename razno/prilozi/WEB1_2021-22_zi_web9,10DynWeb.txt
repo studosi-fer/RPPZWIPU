@@ -1,0 +1,72 @@
+Procesni modeli i protokoli 
+-> in-process (opasno,ISAPI,Apache Server Api,low usage)
+-> poseban proc(sporo,CGI,low usage)
+-> poseban proc s pool-om(Fast CGI,PhP)
+-> proc s 2 dretve
+-> proc s pool-om
+-> vanjski proc s pool-om dretvi
+
+Arhitekture
+browser <---> server <---> vanjski intrepeter(python)
+browser <---> server <---> aplikacijski server(Node.js)
+
+Event Loop -> ako je fja async stavlja se u queue sve dok se sve ne obradi							
+
+
+Versioning -> minor ^version- 1.2.3 -> 1.{2-9}.3
+		   -> major ~version- 1.2.3 -> {1-9}.2.3
+
+
+			// \\ 
+		  Promises
+
+let makePromise=function (x) {
+    return new Promise(function (res, rej) {
+        try {
+            setTimeout(function () {
+                res(x);
+            }, 1000)
+        } catch (err) {
+            //handle err
+        }
+
+    })
+}
+
+let afAll = async function(){
+    let sum=0;
+    let res = await Promise.all([
+        makePromise(getRandom([])).then(function (r1){
+            sum+=r1;
+            })
+        .catch(function (err){
+            //handle err
+        }),
+        makePromise(getRandom([])).then(function (r2){
+            sum+=r2;
+        }).catch(function (err){
+            //handle err
+        })
+	])
+} 
+
+let sum=0;
+makePromise(getRandom([]))
+.then(function (r1){
+    sum+=parseInt(r1);
+    return makePromise(getRandom([]));
+}).then(function (r3){
+    sum+=parseInt(r3);
+    console.log(`sum is ${sum}`);
+}).catch(function (err){
+    //handle err
+})
+
+let asyF = async function () {
+
+    let r1 = await makePromise(getRandom([]));
+    let r2 = await makePromise(getRandom([]));
+    let r3 = await makePromise(getRandom([]));
+
+    console.log("${r1}+${r2}+${r3}=${r1+r2+r2}");
+}

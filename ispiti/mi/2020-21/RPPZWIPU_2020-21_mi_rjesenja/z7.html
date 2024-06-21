@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <style>
+      * {
+        font-size: xxx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input class="euro-input" type="text" placeholder="unesite iznos u €" />
+      <button class="calc-btn" type="button">Preračunaj</button>
+      <p class="output-msg"></p>
+    </form>
+
+    <script>
+      const inputField = document.querySelector(".euro-input");
+      const calcBtn = document.querySelector(".calc-btn");
+      const output = document.querySelector(".output-msg");
+      let lastFetchDatetime;
+      let conversionRate;
+
+      calcBtn.addEventListener("click", () => {
+        // console.log("Input: " + inputField.value);
+
+        if (isNaN(inputField.value) || inputField.value <= 0) {
+          output.textContent = "Unesite ispravan pozitivan iznos u €";
+        } else {
+          //   console.log("Last fetch: " + (lastFetchDatetime - new Date()));
+
+          if (
+            isNaN(lastFetchDatetime) ||
+            lastFetchDatetime - new Date() < -5000
+          ) {
+            lastFetchDatetime = new Date();
+
+            fetch("tecaj.json")
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                } else {
+                  throw new Error("Greška kod dohvata!");
+                }
+              })
+              .then((response) => {
+                response.tecajevi.forEach((tecaj) => {
+                  if (tecaj.valuta == "EUR")
+                    conversionRate = tecaj.srednji_tecaj;
+                });
+
+                localStorage.setItem(
+                  "EUR",
+                  JSON.stringify({
+                    ts: new Date().getTime(),
+                    conversionRate,
+                  })
+                );
+
+                output.textContent =
+                  "Vaš iznos u kn je: " + inputField.value * conversionRate;
+              })
+              .catch((err) => {
+                output.textContent = "Došlo je do pogreške: " + err;
+              });
+          } else
+            output.textContent =
+              "Vaš iznos u kn je: " + inputField.value * conversionRate;
+        }
+      });
+    </script>
+  </body>
+</html>

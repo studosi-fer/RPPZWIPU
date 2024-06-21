@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* univerzalni selektor (0,0,0) ima nižu specifičnost od body selectora (0,0,1)
+            također, on će se odnositi na svaki element, dok za body selector vrijedi samo za određene elemente da će ga naslijediti */
+
+        p {
+            color: blue;
+        }
+
+        [title] {
+            font-style: italic;
+        }
+
+        [title="lorem"] {
+            font-weight: bold;
+        }
+
+        p.ef {
+            text-decoration: underline;
+        }
+
+        #ab,
+        #cd {
+            background-color: #ddd;
+        }
+
+        ins * {
+            background-color: aqua;
+        }
+
+        del>* {
+            background-color: pink;
+        }
+
+        .inner {
+            display: inline-block;
+            height: 2em;
+        }
+
+        li:nth-child(1n+3) {
+            background-color: blanchedalmond;
+        }
+
+        li:hover {
+            font-size: 100px;
+        }
+
+        li:hover {
+            font-size: 30px;
+        }
+
+        /* Ako zamijenimo gornja dva bloka iste specifičnosti promijenit će se izgled */
+
+        em {
+            height: 5em !important;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="ab">id=ab</p>
+    <p id="cd">id=cd</p>
+    <p title="tekst">title=tekst</p>
+    <p title="lorem">title=lorem</p>
+    <blockquote class="ef">class=ef</blockquote>
+    <p class="ef">class=ef</p>
+    <blockquote class="gh">class=gh</blockquote>
+    <p class="gh">class=gh</p>
+    <ins>
+        <span>
+            <span class="inner">4</span>
+            2
+            <em class="inner">5</em>
+        </span>
+        1
+        <span>
+            <span class="inner">6</span>
+            3
+            <span class="inner">7</span>
+        </span>
+    </ins><br>
+    <del>
+        <span>
+            <span class="inner">4</span>
+            2
+            <span class="inner">5</span>
+        </span>
+        1
+        <span>
+            <span class="inner">6</span>
+            3
+            <span class="inner">7</span>
+        </span>
+    </del>
+    <div>
+        <div>
+            <ol>
+                <li>Lorem</li>
+                <li>ipsum</li>
+                <li>dolor</li>
+                <li>sit</li>
+                <li>amet</li>
+                <li>consectetur</li>
+                <li>adipisicing</li>
+                <li>elit</li>
+                <li>Ipsa</li>
+                <li>delectus</li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .list-container {
+        font-family: Consolas, Courier, monospace;
+      }
+
+      .list-container > div {
+        margin-top: 20px;
+        border: 1px dashed black;
+        font-size: xxx-large;
+      }
+
+      .to-do {
+        background-color: rgba(0, 255, 0, 0.3);
+      }
+
+      .not-to-do {
+        background-color: rgba(255, 0, 0, 0.3);
+      }
+
+      p,
+      ul {
+        padding-bottom: 2rem;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      ul,
+      li {
+        width: min-content;
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .list-container {
+          display: flex;
+          height: 100vh;
+        }
+
+        .list-container > div {
+          margin-top: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list-container">
+      <div class="to-do">
+        <p>To do:</p>
+        <ul>
+          <li>111</li>
+          <li>222</li>
+          <li>333</li>
+        </ul>
+      </div>
+
+      <div class="not-to-do">
+        <p>!To do:</p>
+        <ul>
+          <li>444</li>
+          <li>555</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

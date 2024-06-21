@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+
+        margin: 0;
+      }
+
+      header {
+        font-size: 1.5rem;
+      }
+
+      .big-nav,
+      .small-nav {
+        border: green 1px solid;
+        border-radius: 0.25rem;
+        margin: 0.5rem;
+      }
+
+      .links-ul {
+        padding-inline: 1rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .links-ul > li {
+        list-style-type: none;
+      }
+
+      .links-ul > li:hover {
+        background-color: aqua;
+      }
+
+      .small-nav {
+        display: none;
+      }
+
+      .big-nav {
+        padding: 2rem 1rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      @media only screen and (max-width: 500px) {
+        .small-nav {
+          padding: 1rem;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .big-nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="big-nav">
+        <p class="username-full">Pero Perić</p>
+        <ul class="links-ul">
+          <li><a href="#">Link1</a></li>
+          <li><a href="#">Link2</a></li>
+          <li><a href="#">Link3</a></li>
+        </ul>
+      </div>
+      <div class="small-nav">
+        <p class="username-mini">P.P.</p>
+        <p class="links-ddl"><a href="#"> Links...</a></p>
+      </div>
+    </header>
+  </body>
+</html>

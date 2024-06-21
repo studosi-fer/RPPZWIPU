@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>JavaScript example -> Prompt</h2>
+    <button onclick="promptExample()">Try it</button>
+    <p id="res"></p>
+    <script>
+        function getAge(dateString) {
+            var today = new Date();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function promptExample() {
+            if (!confirm("Želite li izračunati vlastitu starost?")) return;
+            var txt;
+            var date = prompt("Unesite datum rođenja", "1.1.2020");
+            if (date == null) {
+                txt = "User cancelled the prompt.";
+            } else if (date == "") {
+                alert("Please try again");
+            } else {
+                var day = Number(date.substr(0, 1));
+                var month = Number(date.substr(2, 1));
+                var year = Number(date.substr(4, 4));
+                date = year + "/0" + month + "/0" + day;
+                var age = getAge(date);
+                alert("Vaša starost je " + age + "! How are you today?");
+            }
+        }
+    </script>
+</body>
+
+</html>

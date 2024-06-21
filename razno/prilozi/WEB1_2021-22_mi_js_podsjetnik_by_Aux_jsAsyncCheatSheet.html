@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <button>button</button>
+    </body>
+    <script>
+                
+        setTimeout( () => console.log(3) , 3000 ); // nakon 3s
+        
+        let promise = new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                console.log("nakon 3 sekunde...");
+                if (false) {
+                    resolve("dobro izvrsen");
+                } else {
+                    reject("lose izvrsen"); 
+                    // moze i npr reject(new Error("lose izvrsen"))
+                }
+            },
+            3000);
+        });
+
+        promise.then(
+            function(result) {console.log(result);}, // ako resolve, onda se ovo izvrsava, result = "dobro izvrsen"
+            function(error) {console.log(error);} // ako reject, onda se ovo izvrsava, result = "lose izvrsen"
+        );
+        
+        promise.catch(
+            function(error) {console.log(error);}   // samo ako reject
+        )
+
+        promise.catch(
+            function(error){console.log(error);}
+        ).then(
+            function(result){console.log("Resolve:"+result)},
+            function(result){console.log("Reject:"+result)}
+        );      // catch ce uhvatit error, u then se ce pozvat prva funkcija s result = undefined      
+
+        let promise2 = fetch("https://web1lab2.azurewebsites.net/products?categoryId=1");
+        promise2.then(      // obraduje se promise od fetcha
+            function(response) {
+                if (!response.ok) { throw new Error("Cannot load"); }
+                else { return response.json(); } // novo obecanje reponse.json()
+            },
+            function(error) { throw error; }
+        ).then(             // obraduje se promise od response.json
+            function(response) { console.log("Loaded JSON"); }
+        ).catch(            // catch hvata gresku u bilo kojem promiseu
+            function(error) { console.log(error); }
+        )
+
+        async function LoadJSON() {     // funkcija se izvodi asinkrono
+            let promise = await fetch("https://web1lab2.azurewebsites.net/products?categoryId=1");
+            // unutar funkcije, await se izvodi sinkrono (ostatak funkcije ceka)
+            if (!promise.ok) { throw new Error ("Cannot load"); }
+            else { var jsonContents = await promise.json(); }
+            console.log(jsonContents);
+        }
+        
+        LoadJSON().catch(
+            (error) => {console.log(error);}
+        )
+        
+
+
+    </script>
+</html>
